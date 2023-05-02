@@ -1,0 +1,72 @@
+@use "../UI/Variables.scss" as variables;
+.sectionOne {
+  h1 {
+    font-weight: 900;
+    font-size: 2.25rem;
+    line-height: 2.4rem;
+    //   margin: 2rem 0;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    max-width: 90%;
+    margin: 3rem auto;
+    margin-bottom: 5rem;
+
+    p {
+      color: variables.$text-color;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .hero-container {
+    min-height: 12.5rem;
+    min-width: 100%;
+    img {
+      width: 100%;
+      min-width: 100%;
+    }
+  }
+  .desktopHeroImage {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .sectionOne {
+    & > div {
+      // display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
+    .heroImage {
+      display: none;
+    }
+    .content {
+      margin-left: 0;
+      margin-right: 0;
+      // transform: translateX(23%);
+      margin-left: 8rem;
+      grid-row: 1;
+
+      h1 {
+        font-size: 3.2rem;
+        line-height: 3.5rem;
+        max-width: 85%;
+      }
+
+      p {
+        max-width: 80%;
+      }
+    }
+    .hero-container {
+      // grid-row: 2;
+      grid-column: 2;
+    }
+    .desktopHeroImage {
+      display: block;
+    }
+  }
+}

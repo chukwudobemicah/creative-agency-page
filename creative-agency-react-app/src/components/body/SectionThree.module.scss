@@ -1,0 +1,126 @@
+@use "../UI/Variables.scss" as vars;
+
+.sectionThree {
+  padding: 3rem 0;
+  background-color: vars.$orangeRed;
+  color: vars.$lowWhite;
+
+  h2,
+  h3 {
+    color: vars.$white;
+  }
+
+  h2,
+  article {
+    width: 82%;
+    margin: 0 auto;
+  }
+
+  h2 {
+    margin-bottom: 3.5rem;
+    font-size: 1.8rem;
+    font-weight: 800;
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+
+    h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+    .relative {
+      position: relative;
+      // padding-left: 1rem;
+    }
+
+    .article-div {
+      // transform: translateX(5%)
+      margin-left: 1.3rem;
+      //   display: flex;
+      //   flex-direction: column;
+      //   gap: 2rem;
+      //   margin-left: 0.5rem;
+
+      h3 {
+        z-index: 2;
+        position: relative;
+      }
+    }
+    .article-div__number {
+      position: absolute;
+      top: -50%;
+      left: 0;
+      z-index: 1;
+      // transform: translateX(-10%);
+      font-size: 4.8rem;
+      font-weight: 900;
+      color: vars.$lightOrangeRed;
+    }
+  }
+
+  // .mask-element {
+  //   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  //   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  // }
+}
+
+@media screen and (min-width: 700px) {
+  .sectionThree {
+    // background-color: transparent;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: grid;
+    grid-template-columns: 37% 63%;
+    grid-template-rows: 1fr;
+
+    & > div:nth-child(1) {
+      background-color: vars.$white;
+
+      h2 {
+        color: vars.$text-color;
+        font-size: 2.3rem;
+        transform: translate(40%, 60%);
+        // transform: translateY(40%);
+        z-index: 2;
+        position: relative;
+      }
+    }
+
+    & > div:nth-child(2) {
+      padding: 10rem 0;
+      padding-bottom: 0;
+      height: 108%;
+      // width: 150%;
+      transform: translateY(-25%);
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: end;
+      background-color: vars.$orangeRed;
+      // transform: translateX(-25%);
+    }
+    article {
+      padding: 0;
+      max-width: 60%;
+      margin: 0;
+      gap: 7rem;
+      // margin-right: 5rem;
+      // margin-left: 5rem;
+
+      > div {
+        max-width: 85%;
+      }
+      // height: 125%;
+      // transform: translateY(-20%);
+      p {
+        max-width: 90%;
+      }
+    }
+  }
+}

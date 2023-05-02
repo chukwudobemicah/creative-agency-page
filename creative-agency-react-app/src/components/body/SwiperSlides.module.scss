@@ -1,0 +1,126 @@
+@use "../UI/Variables.scss" as vars;
+
+.swiper-container {
+  max-height: fit-content;
+  height: fit-content;
+  cursor: grab;
+
+  .sliders-content {
+    background-color: vars.$black;
+    color: vars.$white;
+  }
+  .slides-buttons {
+    display: flex;
+    gap: 1rem;
+    button {
+      filter: grayscale(-100%);
+      border-radius: 50%;
+    }
+  }
+
+  .hero-container {
+    width: 100%;
+    min-width: 100%;
+    img {
+      width: 100%;
+      min-width: 100%;
+    }
+  }
+
+  .sliders-content {
+    padding: 4rem 1.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & > div:nth-child(1) {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      p {
+        font-size: 1.8rem;
+        font-weight: 800;
+      }
+    }
+  }
+
+  .wave-img-container {
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    width: 5rem;
+    display: none;
+  }
+
+  .desktopSlideImage {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .swiper-container {
+    display: grid;
+    grid-template-columns: 37% 63%;
+    grid-template-rows: 1fr;
+
+    .hero-container {
+      grid-column: 2;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        height: 38%;
+        width: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.099),
+          rgba(0, 0, 0, 0.302),
+          #000000bd
+        );
+        bottom: 0;
+        left: 0;
+        mix-blend-mode: overlay;
+      }
+    }
+
+    .slide-img {
+      display: none;
+      position: relative;
+    }
+
+    .desktopSlideImage {
+      display: block;
+      max-height: 40rem;
+      height: 40rem;
+      object-fit: cover;
+    }
+
+    .sliders-content {
+      grid-row: 1;
+      height: 75%;
+      width: 130%;
+      align-items: center;
+
+      & > div:nth-child(1) {
+        transform: translateX(10%);
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        p {
+          font-size: 2.8rem;
+          font-weight: 800;
+        }
+      }
+    }
+
+    .wave-img-container {
+      top: 35%;
+      right: 0;
+      width: 8rem;
+      transform: translateX(50%);
+      display: block;
+    }
+  }
+}

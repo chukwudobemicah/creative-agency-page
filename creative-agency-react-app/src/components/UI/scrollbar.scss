@@ -1,0 +1,12 @@
+@use "./Variables.scss" as vars;
+
+::-webkit-scrollbar-thumb {
+  background: vars.$orangeRed;
+  cursor: grab;
+}
+::-webkit-scrollbar-track {
+  background: vars.$orangeRed;
+}
+::-webkit-scrollbar-button {
+  background: vars.$orangeRed;
+}

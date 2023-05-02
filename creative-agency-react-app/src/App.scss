@@ -1,0 +1,9 @@
+@use "./components/UI/Resets.scss" as *;
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;800&display=swap");
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.hundred-vh {
+  max-height: 100vh;
+  height: 100vh;
+}

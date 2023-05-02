@@ -1,0 +1,130 @@
+@use "../UI/Variables.scss" as vars;
+
+.sectionTwo {
+  background-color: vars.$black;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    color: vars.$white;
+    // width: 90%;
+    margin: 0 auto;
+    padding: 4.7rem 1.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+  .highlight {
+    background: linear-gradient(to right, blue, vars.$orangeRed);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-size: 100% 100%;
+    color: transparent;
+    // transition: background-size 1s ease;
+    animation: fill-text 0.3s forwards;
+    transition: all 0.3s ease-in;
+  }
+  .link {
+    color: vars.$orangeRed;
+  }
+  .link {
+    position: relative;
+    font-size: 1.25rem;
+    font-weight: 600;
+    width: fit-content;
+    cursor: pointer;
+    overflow: hidden;
+    // text-decoration: underline;
+    // padding-bottom: 1rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0%;
+      left: 0%;
+      width: 100%;
+      height: 0.18rem;
+      background-color: vars.$orangeRed;
+      transition: all 0.3s ease-in;
+    }
+
+    &:hover::before {
+      left: -100%;
+    }
+  }
+
+  .hero-container {
+    position: relative;
+    img:nth-child(1) {
+      width: 100%;
+      min-width: 100%;
+    }
+    img:nth-child(3) {
+      position: absolute;
+      bottom: 0;
+      transform: translate(1.5rem, 50%);
+      width: 5rem;
+    }
+  }
+  .desktopHeroImage {
+    display: none;
+  }
+
+  .mask-element {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    max-width: fit-content;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .sectionTwo {
+    & > div {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .mobileHeroImage {
+      display: none;
+    }
+    .desktopHeroImage {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+
+    .content {
+      font-size: 1.2rem;
+      max-width: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      h2 {
+        font-size: 3rem;
+        max-width: 60%;
+      }
+    }
+
+    .hero-container {
+      img:nth-child(3) {
+        right: 0;
+        top: 25%;
+        width: 8rem;
+        transform: translate(50%, 50%);
+      }
+    }
+  }
+}
+
+@keyframes fill-text {
+  from {
+    background-position: left;
+  }
+  to {
+    background-position: right;
+  }
+}

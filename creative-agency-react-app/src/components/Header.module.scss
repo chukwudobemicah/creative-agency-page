@@ -1,0 +1,119 @@
+@use "./UI/Variables.scss" as vars;
+
+header {
+  position: sticky;
+
+  & > div {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0.7rem 1.5rem 0.7rem;
+    top: 0;
+    background-color: transparent;
+    z-index: 3;
+  }
+
+  nav {
+    background-color: vars.$black;
+    color: white;
+    font-weight: 800;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 100%;
+    right: 8%;
+    gap: 2rem;
+    width: 70vw;
+    text-align: right;
+    padding: 1.5rem 0;
+
+    ul {
+      width: 100%;
+      text-align: right;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+}
+
+.scale-up {
+  animation: scale-up 0.2s ease-in forwards;
+  transition: animation 0.2s ease-in;
+}
+.scale-down {
+  animation: scale-down 0.2s ease-in forwards;
+  transition: animation 0.2s ease-in;
+}
+.hidden {
+  display: none;
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(0.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes scale-down {
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@media screen and (min-width: 700px) {
+  header {
+    display: grid;
+
+    & > div {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 0;
+      margin-left: 8rem;
+    }
+
+    & > div nav {
+      display: flex !important;
+      position: static;
+      background-color: vars.$orangeRed;
+      flex-direction: row;
+      padding: 0;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 1.5rem 0;
+
+      ul {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+
+        li {
+          margin: 0;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .hidden {
+      display: block;
+    }
+    .scale-down {
+      animation: none;
+    }
+    .scale-up {
+      animation: none;
+    }
+  }
+}
